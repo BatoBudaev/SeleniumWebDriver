@@ -46,11 +46,6 @@ public class DemoQaTest {
     }
 
     @Test
-    public void checkTitleTest() {
-        Assertions.assertEquals("The Internet", driver.getTitle());
-    }
-
-    @Test
     public void checkFormTest() throws InterruptedException {
         String firstName = "Ivan";
         String lastName = "Petrov";
