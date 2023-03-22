@@ -26,6 +26,7 @@ public class DemoQaTest {
     @BeforeAll
     public void setup() {
         String browser = System.getProperty("browser");
+
         if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
@@ -38,6 +39,7 @@ public class DemoQaTest {
             options.addArguments("--remote-allow-origins=*");
             driver = new ChromeDriver(options);
         }
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://demoqa.com/automation-practice-form/");
         driver.manage().window().maximize();
@@ -76,7 +78,7 @@ public class DemoQaTest {
         Select yearSelect = new Select(yearElement);
         yearSelect.selectByVisibleText(year);
         driver.findElement(By.xpath("//div[@aria-label='Choose Wednesday, November 13th, 1991']")).click();
-        String dateText =driver.findElement(By.cssSelector("#dateOfBirthInput")).getAttribute("value");
+        String dateText = driver.findElement(By.cssSelector("#dateOfBirthInput")).getAttribute("value");
         String newDateText = dateText.substring(0, 3) + month + "," + year;
         Thread.sleep(1000);
 
